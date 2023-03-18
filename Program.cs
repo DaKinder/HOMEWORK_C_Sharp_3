@@ -98,8 +98,7 @@ int AcceptUserInput(string n, int point)
 //блок подсчёта длины вектора
 double CountVectorLength(int[] arr)
 {
-    double result = Math.Round(Math.Sqrt(Math.Pow((arr[3] - arr[0]), 2) + Math.Pow((arr[4] - arr[1]), 2) + Math.Pow((arr[5] - arr[2]), 2)), 2);
-    return result;
+    return Math.Round(Math.Sqrt(Math.Pow((arr[3] - arr[0]), 2) + Math.Pow((arr[4] - arr[1]), 2) + Math.Pow((arr[5] - arr[2]), 2)), 2);
 }
 
 //блок создания и заполнения массива
@@ -143,7 +142,7 @@ void PrintTable(int numberN)
 {
     for (int i = 1; i <= numberN; i++)
     {
-        Console.WriteLine($"{i} ^ {3} = {MathPowInt2(i, 3)}");
+        Console.WriteLine($"{i} ^ {3} = {MathPowInt(i, 3)}"); //обращение к методу из первой задачи (^.^)
     }
 }
 
@@ -154,19 +153,6 @@ int UserInput()
     return number;
 }
 
-//возведение в степень
-int MathPowInt2(int num, int exponentiation)
-{
-    int i = 1;
-    int multiplier = num;
-    while (i < exponentiation)
-    {
-        num = num * multiplier;
-        i++;
-    }
-    return num;
-}
-
-System.Console.Write("Введите целое число: ");
+Console.Write("Введите целое число: ");
 int numberN = UserInput();
 PrintTable(numberN);
