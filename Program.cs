@@ -16,12 +16,10 @@ int FindNumberLength(int input)
 //возведение 10 в степень длины числа чтобы получить divider
 int MathPowInt(int num, int exponentiation)
 {
-    int i = 1;
     int multiplier = num;
-    while (i < exponentiation)
+    for (int i = 1; i < exponentiation;  i++)
     {
         num = num * multiplier;
-        i++;
     }
     return num;
 }
@@ -29,16 +27,14 @@ int MathPowInt(int num, int exponentiation)
 //Принцып разворота числа. Сам придумал, без гугла
 //123 = 1*100 2*10 3*1 - 1*1 2*10 3*100 = 321
 //123 = (divider = 100) - 1 + 20 + 300 = 321
-int ReverseNumber(int divider, int num, int length)
+int ReverseNumber(int multiplier, int num, int length)
 {
-    int i = 0;
     int newNum = 0;
-    while (i < length)
+    for (int i = 0; i < length; i++)
     {
-        newNum = newNum + num % 10 * divider;
+        newNum = newNum + num % 10 * multiplier;
         num = num / 10;
-        divider = divider / 10;
-        i++;
+        multiplier = multiplier / 10;
     }
     return newNum;
 }
@@ -51,7 +47,6 @@ bool CheckPalindrom(int input, int reversedNum)
         return true;
     }
     else return false;
-
 }
 
 //вывод в консоль
@@ -126,8 +121,7 @@ int[] CreateArray()
 }
 
 int[]arr = CreateArray();
-double result = CountVectorLength(arr);
-System.Console.WriteLine(result);
+Console.WriteLine(CountVectorLength(arr));
 
 
 
@@ -149,10 +143,8 @@ void PrintTable(int numberN)
 //блок ввода пользователем
 int UserInput()
 {
-    int number = Convert.ToInt32(Console.ReadLine());
-    return number;
+    return Convert.ToInt32(Console.ReadLine());
 }
 
 Console.Write("Введите целое число: ");
-int numberN = UserInput();
-PrintTable(numberN);
+PrintTable(UserInput());
