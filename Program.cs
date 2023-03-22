@@ -17,7 +17,7 @@ int FindNumberLength(int input)
 int MathPowInt(int num, int exponentiation)
 {
     int multiplier = num;
-    for (int i = 1; i < exponentiation;  i++)
+    for (int i = 1; i < exponentiation; i++)
     {
         num = num * multiplier;
     }
@@ -38,7 +38,29 @@ int ReverseNumber(int multiplier, int num, int length)
     }
     return newNum;
 }
+/*
+//input - число, divider - 10^x, length - длина числа
+bool CompareNumbers(int input, int divider, int length)
+{
+    int firstNum;
+    int lastNum;
+    int newNum = input;
 
+    for (int i = 0; i < length / 2; i++)
+    {
+        firstNum = newNum / divider;
+        lastNum = newNum % 10;
+
+        if (firstNum == lastNum)
+        {
+            newNum = newNum % divider / 10;
+            divider /= 100;
+        }
+        else return false;
+    }
+    return true;
+}
+*/
 //проверка числа на палиндромность
 bool CheckPalindrom(int input, int reversedNum)
 {
@@ -63,6 +85,8 @@ int input = Convert.ToInt32(Console.ReadLine());
 //блоки обработки входящей информации
 int length = FindNumberLength(input);
 int divider = MathPowInt(10, (length - 1));
+//bool result = CompareNumbers(input, divider, length);
+//System.Console.WriteLine($"резултат = {result}");
 int reversedNum = ReverseNumber(divider, input, length);
 
 //блок вывода информации
@@ -148,3 +172,4 @@ int UserInput()
 
 Console.Write("Введите целое число: ");
 PrintTable(UserInput());
+
